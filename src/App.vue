@@ -9,8 +9,30 @@
 </script>
 
 <template>
-  <Header />
-
+    <div id="navBar">
+      <div id="header">
+        <Header />
+      </div>
+      <div id="sideNav">
+        <SideNav />
+      </div>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  #navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: blue;
+  }
+
+  #header {
+    display: flex;
+  }
+
+  #sideNav {
+    display: flex;
+  }
+</style>

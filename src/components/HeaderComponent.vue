@@ -19,8 +19,6 @@
     #header {
         display: flex;
         align-items: center;
-        padding: 1rem;
-        background-color: blue;
     }
 
     #logo {
