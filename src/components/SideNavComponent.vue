@@ -1,4 +1,4 @@
-<script>
+<script setup>
 
     console.log("1.3 SideNav ready");
 
@@ -7,7 +7,7 @@
 <template>
 
     <div>
-        <ul id="sideNav">
+        <ul id="sideNavUL">
             <li>
                 <button type="button" class="sideNavButtons">Home</button>
             </li>
@@ -20,19 +20,20 @@
 </template>
 
 <style scoped>
-    #sideNav {
+    #sideNavUL {
         display: flex;
         list-style-type: none;
         gap: 40px;
         margin: 0;
         padding: 0;
+        margin-right: 50px;
     }
 
     .sideNavButtons {
         padding: 5px 10px;
-        background-color: darkblue;
-        color: white;
-        border: 1px solid black;
+        background-color: transparent;
+        color: black;
+        border: none;
         cursor: pointer;
     }
 

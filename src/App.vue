@@ -4,35 +4,61 @@
   import Home from './components/HomeComponent.vue';
   import Login from './components/LoginComponent.vue';
   import SideNav from './components/SideNavComponent.vue';
+  import { ref, watch} from 'vue';
 
-  console.log("1.1 Components initialized");
+  console.log("1.1 Components initialized"); 
+
+  const log = ref(false);
+  const calour = ref("blue");
+
+  function logStatuss(isLoged) {
+    log.value = isLoged; 
+  }
+
+  watch(log, (newCalour) => {
+    calour.value = newCalour ? "lightgreen": "blue";
+    console.log("3.1 Header updated for signed-in state");
+  })
+
+  watch(log, () => {
+    console.log("3.2 SideNav rendered");
+  })
 </script>
 
 <template>
-    <div id="navBar">
-      <div id="header">
-        <Header />
+    <div id="Nav">
+      <Header :background="calour"/>
+      <div id="sideNav" v-if="log">
+        <SideNav/>
       </div>
-      <div id="sideNav">
-        <SideNav />
-      </div>
+    </div>
+    <div id="login">
+      <Login @loginStatus="logStatuss"/>
     </div>
 </template>
 
 <style scoped>
-  #navBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: blue;
-  }
 
-  #header {
-    display: flex;
+  #Nav {
+    display: block;
+    padding: 1rem;
+    height: 70px;
+    position: relative;
+    top: -25px;
+    margin-left: -25px;
+    margin-right: -25px;
   }
 
   #sideNav {
+    display: inline-block;
+    position: relative;
+    left: 85%;
+    top: -60px;
+  }
+
+  #login {
     display: flex;
+    justify-content: center;
+    margin-top: 5rem; 
   }
 </style>
