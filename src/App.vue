@@ -1,11 +1,16 @@
-<script setup></script>
+<script setup>
+  import Header from './components/HeaderComponent.vue';
+  import About from './components/AboutMeComponent.vue';
+  import Home from './components/HomeComponent.vue';
+  import Login from './components/LoginComponent.vue';
+  import SideNav from './components/SideNavComponent.vue';
+
+  console.log("1.1 Components initialized");
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Header />
+
 </template>
 
 <style scoped></style>
