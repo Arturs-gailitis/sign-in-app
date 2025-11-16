@@ -7,6 +7,7 @@
     const isLoged = ref(false);
     const username = ref("");
     const password = ref("");
+    const messageStatuss = ref(false);
 
     const emptyFields = computed(() => {
         if (username.value == "" || password.value == "") {
@@ -27,10 +28,12 @@
             isLoged.value = true;
             emit("loginStatus", isLoged.value);
             console.log("2.4 Login success");
+            messageStatuss.value = false;
         } else {
             isLoged.value = false;
             emit("loginStatus", isLoged.value);
             console.log("2.4 Login failed");
+            messageStatuss.value = true;
         }
     }
 
@@ -40,6 +43,7 @@
     <div id="container" v-if="!isLoged">
         <form id="login">
             <h1 id="Title">Login</h1>
+            <p id="messageStatus" v-if="messageStatuss">Login failed</p>
             <div class="labelInput">
                 <label for="username">Username: <input type="text" id="username" v-model="username" name="username"></label>
             </div>
@@ -83,6 +87,11 @@
         display: flex;
         justify-content: center;
         cursor: pointer;
+    }
+
+    #messageStatus {
+        color: white;
+        text-align: center;
     }
 
 </style>

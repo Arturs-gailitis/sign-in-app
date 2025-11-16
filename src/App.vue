@@ -30,7 +30,7 @@
     if (log.value == true) {
       console.log("3.2 SideNav rendered");
       console.log("5.1 Home rendered");
-      console.log("3.3 Default view rendered");
+      console.log("3.3 Default view: Home");
     }
   })
 

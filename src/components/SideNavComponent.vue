@@ -33,7 +33,7 @@
                 <button type="button" class="sideNavButtons" @click="clickHome">Home</button>
             </li>
             <li>
-                <button type="button" class="sideNavButtons" @click="clickAbout">About</button>
+                <button type="button" class="sideNavButtons" @click="clickAbout">About Me</button>
             </li>
         </ul>
     </div>
