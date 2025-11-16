@@ -27,6 +27,8 @@
   watch(log, () => {
     if (log.value == true) {
       console.log("3.2 SideNav rendered");
+      console.log("5.1 Home rendered");
+      console.log("3.3 Default view rendered");
     }
   })
 </script>
@@ -38,8 +40,13 @@
         <SideNav/>
       </div>
     </div>
-    <div id="login" v-if="!log">
-      <Login @loginStatus="logStatuss"/>
+    <div>
+      <div id="login" v-if="!log">
+        <Login @loginStatus="logStatuss"/>
+      </div>
+      <div v-if="log">
+        <Home/>
+      </div>
     </div>
 </template>
 
