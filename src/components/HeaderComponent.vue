@@ -7,14 +7,15 @@
         statuss: Boolean
     })
 
-    const emit = defineEmits(['LogoutStatus']);
+    const emit = defineEmits(["LogoutStatus"]);
     let newStatuss;
 
     function logOut() {
         if (props.statuss == true) {
             newStatuss = false;
+            console.log("6.1 Logout");
         }
-        emit('LogoutStatus', newStatuss);
+        emit("LogoutStatus", newStatuss);
     }
 
 </script>

@@ -2,14 +2,14 @@
 
     import { computed, ref, watch } from 'vue';
 
-    const emit = defineEmits(['loginStatus']);
+    const emit = defineEmits(["loginStatus"]);
 
     const isLoged = ref(false);
-    const username = ref('');
-    const password = ref('');
+    const username = ref("");
+    const password = ref("");
 
     const emptyFields = computed(() => {
-        if (username.value == '' || password.value == '') {
+        if (username.value == "" || password.value == "") {
             return true;
         } else {
             return false;
@@ -25,15 +25,26 @@
     function login() {
         if (username.value == "john.Pork@example.com" && password.value == "IT2468") {
             isLoged.value = true;
-            emit('loginStatus', isLoged.value);
+            emit("loginStatus", isLoged.value);
             console.log("2.4 Login success");
         } else {
             isLoged.value = false;
-            emit('loginStatus', isLoged.value);
+            emit("loginStatus", isLoged.value);
             console.log("2.4 Login failed");
         }
     }
 
+    const props = defineProps({
+        return: Boolean
+    })
+
+    watch(props, () => {
+        if (props.return == true) {
+            username.value = "";
+            password.value = "";
+            console.log("6.2 Login form reset");
+        }
+    })
 
 </script>
 

@@ -7,19 +7,19 @@
     const homeStatus = ref(false);
     const aboutStatus = ref(false);
 
-    const emit = defineEmits(['homeStatus', 'aboutStatus']);
+    const emit = defineEmits(["homeStatus", "aboutStatus"]);
 
     function clickHome() {
         homeStatus.value = true;
         console.log("4.1 Navigate: Home");
-        emit('homeStatus', homeStatus.value);
+        emit("homeStatus", homeStatus.value);
         homeStatus.value = false;
     }
 
     function clickAbout() {
         aboutStatus.value = true;
         console.log("4.2 Navigate: About");
-        emit('aboutStatus', aboutStatus.value);
+        emit("aboutStatus", aboutStatus.value);
         aboutStatus.value = false;
     }
 
