@@ -34,18 +34,6 @@
         }
     }
 
-    const props = defineProps({
-        return: Boolean
-    })
-
-    watch(props, () => {
-        if (props.return == true) {
-            username.value = "";
-            password.value = "";
-            console.log("6.2 Login form reset");
-        }
-    })
-
 </script>
 
 <template>

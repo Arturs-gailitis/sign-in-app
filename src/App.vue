@@ -12,7 +12,6 @@
   const calour = ref("blue");
   const hStat = ref(false);
   const aStat = ref(false);
-  const logout = ref(false);
 
   function logStatuss(isLoged) {
     log.value = isLoged; 
@@ -20,7 +19,6 @@
 
   function logoutStatus(isLogout) {
     log.value = isLogout;
-    logout.value = !isLogout;
   }
 
   watch(log, (newCalour) => {
@@ -66,7 +64,7 @@
     </div>
     <div>
       <div id="login" v-if="!log">
-        <Login @loginStatus="logStatuss" :return="logout"/>
+        <Login @loginStatus="logStatuss"/>
       </div>
       <div v-if="(log && hStat) || (log && !aStat) ">
         <Home/>

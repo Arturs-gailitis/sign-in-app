@@ -14,6 +14,7 @@
         if (props.statuss == true) {
             newStatuss = false;
             console.log("6.1 Logout");
+            console.log("6.2 Login form reset");
         }
         emit("LogoutStatus", newStatuss);
     }
