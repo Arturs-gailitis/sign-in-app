@@ -10,6 +10,7 @@
 
   const log = ref(false);
   const calour = ref("blue");
+  const hStat = ref(false);
 
   function logStatuss(isLoged) {
     log.value = isLoged; 
@@ -31,6 +32,10 @@
       console.log("3.3 Default view rendered");
     }
   })
+
+  function homeStatuss(home) {
+    hStat.value = home;
+  }
 </script>
 
 <template>
@@ -44,8 +49,8 @@
       <div id="login" v-if="!log">
         <Login @loginStatus="logStatuss"/>
       </div>
-      <div v-if="log">
-        <Home/>
+      <div v-if="log || hStat">
+        <Home @homeStatus="homeStatuss"/>
       </div>
     </div>
 </template>

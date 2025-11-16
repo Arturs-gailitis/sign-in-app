@@ -1,6 +1,19 @@
 <script setup>
 
+    import { ref } from 'vue';
+
     console.log("1.3 SideNav ready");
+
+    const homeStatus = ref(false);
+
+    const emit = defineEmits(['homeStatus']);
+
+    function clickHome() {
+        homeStatus.value = true;
+        console.log("4.1 Navigate: Home");
+        emit('homeStatus', homeStatus.value);
+        homeStatus.value = false;
+    }
 
 </script>
 
@@ -9,7 +22,7 @@
     <div>
         <ul id="sideNavUL">
             <li>
-                <button type="button" class="sideNavButtons">Home</button>
+                <button type="button" class="sideNavButtons" @click="clickHome">Home</button>
             </li>
             <li>
                 <button type="button" class="sideNavButtons">About</button>
