@@ -15,24 +15,30 @@
     log.value = isLoged; 
   }
 
+  function logoutStatus(isLogout) {
+    log.value = isLogout;
+  }
+
   watch(log, (newCalour) => {
     calour.value = newCalour ? "lightgreen": "blue";
     console.log("3.1 Header updated for signed-in state");
   })
 
   watch(log, () => {
-    console.log("3.2 SideNav rendered");
+    if (log.value == true) {
+      console.log("3.2 SideNav rendered");
+    }
   })
 </script>
 
 <template>
     <div id="Nav">
-      <Header :background="calour"/>
+      <Header :background="calour" :statuss="log" @LogoutStatus="logoutStatus"/>
       <div id="sideNav" v-if="log">
         <SideNav/>
       </div>
     </div>
-    <div id="login">
+    <div id="login" v-if="!log">
       <Login @loginStatus="logStatuss"/>
     </div>
 </template>

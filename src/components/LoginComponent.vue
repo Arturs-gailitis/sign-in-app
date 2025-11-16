@@ -1,6 +1,6 @@
 <script setup>
 
-    import { ref } from 'vue';
+    import { computed, ref, watch } from 'vue';
 
     const emit = defineEmits(['loginStatus']);
 
@@ -8,17 +8,32 @@
     const username = ref('');
     const password = ref('');
 
-    function login() {
-        if (username.value == 'arturs.gailitis@va.lv' && password.value == 'IT12345') {
-            console.log("2.4 Login success!");
-            isLoged.value = true;
-            emit('loginStatus', isLoged.value);
+    const emptyFields = computed(() => {
+        if (username.value == '' || password.value == '') {
+            return true;
         } else {
-            console.log("2.4 Login failed!");
+            return false;
+        }
+    })
+
+    watch(emptyFields, () => {
+        if (emptyFields.value !== false) {
+            console.log("2.3 Login button disabled state reflects validity");
+        }
+    })
+
+    function login() {
+        if (username.value !== "arturs.gailitis@va.lv" && password.value !== "IT12345") {
             isLoged.value = false;
             emit('loginStatus', isLoged.value);
+            console.log("2.4 Login failed!");
+        } else {
+            isLoged.value = true;
+            emit('loginStatus', isLoged.value);
+            console.log("2.4 Login success!");
         }
     }
+
 
 </script>
 
@@ -32,7 +47,7 @@
             <div class="labelInput">
                 <label for="password">Password: <input type="password" id="password" v-model="password" name="password"></label>
             </div>
-            <button type="button" @click="login">Login</button>
+            <button type="button" @click="login" v-bind:disabled="emptyFields">Login</button>
         </form>
     </div>
 

@@ -31,9 +31,9 @@
 
     .sideNavButtons {
         padding: 5px 10px;
-        background-color: transparent;
+        background-color: green;
         color: black;
-        border: none;
+        border: 1px solid green;
         cursor: pointer;
     }
 

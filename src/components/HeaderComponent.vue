@@ -2,17 +2,31 @@
 
     console.log("1.2 Header ready");
 
-    defineProps({
-        background: String
+    const props = defineProps({
+        background: String,
+        statuss: Boolean
     })
+
+    const emit = defineEmits(['LogoutStatus']);
+    let newStatuss;
+
+    function logOut() {
+        if (props.statuss == true) {
+            newStatuss = false;
+        }
+        emit('LogoutStatus', newStatuss);
+    }
 
 </script>
 
 <template> 
 
-    <div id="navBar" :style="{ 'background-color': background }">
+    <div id="navBar" v-bind:style="{ 'background-color': background }">
         <div id="header">
             <img src="../pictures/logo.svg" id="logo"></img>
+        </div>
+        <div id="logout">
+            <button type="button" id="logoutButton" v-if="props.statuss" @click="logOut">Logout</button>
         </div>
     </div>
 
@@ -33,6 +47,21 @@
         max-width: 50px;
         height: auto;
         width: auto;
+    }
+
+    #logout {
+        display: flex;
+        position: relative;
+        right: 90%;
+    }
+
+    #logoutButton {
+        background-color: green;
+        cursor: pointer;
+        height: auto;
+        padding: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
 </style>
