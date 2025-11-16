@@ -11,6 +11,7 @@
   const log = ref(false);
   const calour = ref("blue");
   const hStat = ref(false);
+  const aStat = ref(false);
 
   function logStatuss(isLoged) {
     log.value = isLoged; 
@@ -36,21 +37,40 @@
   function homeStatuss(home) {
     hStat.value = home;
   }
+
+  function aboutStatuss(about) {
+    aStat.value = about;
+  }
+
+  watch(aStat, () => {
+    if (aStat.value == true) {
+      hStat.value = false;
+    }
+  })
+
+  watch(hStat, () => {
+    if (hStat.value == true) {
+      aStat.value = false;
+    }
+  })
 </script>
 
 <template>
     <div id="Nav">
       <Header :background="calour" :statuss="log" @LogoutStatus="logoutStatus"/>
       <div id="sideNav" v-if="log">
-        <SideNav/>
+        <SideNav @homeStatus="homeStatuss" @aboutStatus="aboutStatuss"/>
       </div>
     </div>
     <div>
       <div id="login" v-if="!log">
         <Login @loginStatus="logStatuss"/>
       </div>
-      <div v-if="log || hStat">
-        <Home @homeStatus="homeStatuss"/>
+      <div v-if="(log && hStat) || (log && !aStat) ">
+        <Home/>
+      </div>
+      <div v-if="aStat && log">
+        <About/>
       </div>
     </div>
 </template>

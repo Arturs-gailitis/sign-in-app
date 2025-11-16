@@ -23,14 +23,14 @@
     })
 
     function login() {
-        if (username.value !== "arturs.gailitis@va.lv" && password.value !== "IT12345") {
-            isLoged.value = false;
-            emit('loginStatus', isLoged.value);
-            console.log("2.4 Login failed!");
-        } else {
+        if (username.value == "john.Pork@example.com" && password.value == "IT2468") {
             isLoged.value = true;
             emit('loginStatus', isLoged.value);
-            console.log("2.4 Login success!");
+            console.log("2.4 Login success");
+        } else {
+            isLoged.value = false;
+            emit('loginStatus', isLoged.value);
+            console.log("2.4 Login failed");
         }
     }
 
@@ -80,7 +80,7 @@
 
     #login button {
         margin-top: 25px;
-        margin-left: 45%;
+        margin-left: 41%;
         display: flex;
         justify-content: center;
         cursor: pointer;
