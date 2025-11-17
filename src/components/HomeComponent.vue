@@ -23,10 +23,11 @@
         position: relative;
         justify-self: center;
         height: 613px;
-        width: 88%;
+        width: 83rem;
         margin-top: -30px;
         margin-bottom: -10px;
-        margin-right: -190px;
+        margin-right: -260px;
+        margin-left: -60px;
         background-color: #DCCCFFff;
     }
 

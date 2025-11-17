@@ -54,7 +54,7 @@
     #logout {
         display: flex;
         position: relative;
-        right: 10%;
+        right: 10px;
     }
 
     #logoutButton {

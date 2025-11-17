@@ -4,7 +4,7 @@
   import Home from './components/HomeComponent.vue';
   import Login from './components/LoginComponent.vue';
   import SideNav from './components/SideNavComponent.vue';
-  import { ref, watch} from 'vue';
+  import { onMounted, ref, watch} from 'vue';
 
   console.log("1.1 Components initialized"); 
 
@@ -53,9 +53,30 @@
       aStat.value = false;
     }
   })
+
+  watch(log, (newLoged) => {
+    if (newLoged == true) {
+      localStorage.setItem('isLoged', "true");
+    } else {
+      localStorage.setItem('isLoged', "false");
+    }
+    console.log("7.1 State persisted");
+  })
+
+  onMounted(() => {
+    const loginSaved = localStorage.getItem('isLoged');
+    if (loginSaved == "true") {
+      log.value = true;
+      console.log("7.2 State restored");
+    } else {
+      log.value = false;
+      console.log("7.2 State restored");
+    }
+  })
 </script>
 
 <template>
+  <div id="container">
     <div id="Nav">
       <Header :background="calour" :statuss="log" @LogoutStatus="logoutStatus"/>
       <div id="sideNav" v-if="log">
@@ -73,9 +94,14 @@
         <About/>
       </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
+
+  #container {
+    max-height: 613px;
+  }
 
   #Nav {
     display: block;
@@ -90,7 +116,7 @@
   #sideNav {
     display: inline-block;
     position: relative;
-    top: 40%;
+    top: 28px;
     margin-top: -27px;
     background-color: #C6FAF6ff;
     height: 613px;

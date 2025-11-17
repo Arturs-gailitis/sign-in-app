@@ -72,7 +72,7 @@
 
     #container {
         display: flex;
-        justify-content: center;
+        justify-self: center;
         align-items: center;
         height: 150px auto;
         background-color: #FEC842ff;
@@ -85,7 +85,7 @@
         margin: 5px;
         display: flex;
         color: black;
-        justify-content: center;
+        justify-self: center;
     }
 
     #Title {
@@ -95,9 +95,8 @@
 
     #login button {
         margin-top: 25px;
-        margin-left: 41%;
         display: flex;
-        justify-content: center;
+        justify-self: center;
         cursor: pointer;
     }
 
