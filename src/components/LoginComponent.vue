@@ -24,7 +24,7 @@
     })
 
     function login() {
-        if (username.value == "artūrs.gailītis@va.lv" && password.value == "IT2005") {
+        if (username.value == "arturs.gailitis@va.lv" && password.value == "IT2005") {
             isLoged.value = true;
             emit("loginStatus", isLoged.value);
             console.log("2.4 Login success");
@@ -36,6 +36,18 @@
             messageStatuss.value = true;
         }
     }
+
+    const prop = defineProps({
+        login: Boolean
+    });
+
+    watch(() => prop.login, (newLoged) => {
+        if (newLoged == false) {
+            username.value = "";
+            password.value = "";
+            console.log("6.2 Login form reset");
+        }
+    })
 
 </script>
 

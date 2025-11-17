@@ -64,7 +64,7 @@
     </div>
     <div>
       <div id="login" v-if="!log">
-        <Login @loginStatus="logStatuss"/>
+        <Login @loginStatus="logStatuss" :login="log"/>
       </div>
       <div v-if="(log && hStat) || (log && !aStat) ">
         <Home/>

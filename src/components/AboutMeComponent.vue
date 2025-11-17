@@ -3,7 +3,7 @@
 const info = {
     name: "Artūrs Gailītis",
     ID: "IT2005",
-    email: "artūrs.gailītis@va.lv"
+    email: "arturs.gailitis@va.lv"
 }
 
 console.log("5.2 AboutMe rendered");
