@@ -9,7 +9,7 @@
   console.log("1.1 Components initialized"); 
 
   const log = ref(false);
-  const calour = ref("blue");
+  const calour = ref("#979797ff");
   const hStat = ref(false);
   const aStat = ref(false);
 
@@ -22,7 +22,7 @@
   }
 
   watch(log, (newCalour) => {
-    calour.value = newCalour ? "lightgreen": "blue";
+    calour.value = newCalour ? "#FFECBDff": "#979797ff";
     console.log("3.1 Header updated for signed-in state");
   })
 
@@ -90,8 +90,11 @@
   #sideNav {
     display: inline-block;
     position: relative;
-    left: 85%;
-    top: -60px;
+    top: 40%;
+    margin-top: -27px;
+    background-color: #C6FAF6ff;
+    height: 613px;
+    width: 200px;
   }
 
   #login {

@@ -6,6 +6,8 @@
 
     const homeStatus = ref(false);
     const aboutStatus = ref(false);
+    const homeButtonColour = ref("white");
+    const aboutButtonColour = ref("white");
 
     const emit = defineEmits(["homeStatus", "aboutStatus"]);
 
@@ -14,6 +16,8 @@
         console.log("4.1 Navigate: Home");
         emit("homeStatus", homeStatus.value);
         homeStatus.value = false;
+        homeButtonColour.value = "#56C2B8ff";
+        aboutButtonColour.value = "white";
     }
 
     function clickAbout() {
@@ -21,6 +25,8 @@
         console.log("4.2 Navigate: About");
         emit("aboutStatus", aboutStatus.value);
         aboutStatus.value = false;
+        homeButtonColour.value = "white";
+        aboutButtonColour.value = "#56C2B8ff";
     }
 
 </script>
@@ -30,10 +36,12 @@
     <div>
         <ul id="sideNavUL">
             <li>
-                <button type="button" class="sideNavButtons" @click="clickHome">Home</button>
+                <button type="button" class="sideNavButtons" @click="clickHome" 
+                    v-bind:style="{ 'background-color': homeButtonColour }">Home</button>
             </li>
             <li>
-                <button type="button" class="sideNavButtons" @click="clickAbout">About Me</button>
+                <button type="button" class="sideNavButtons" @click="clickAbout" 
+                    v-bind:style="{ 'background-color': aboutButtonColour }">About Me</button>
             </li>
         </ul>
     </div>
@@ -42,20 +50,16 @@
 
 <style scoped>
     #sideNavUL {
-        display: flex;
-        list-style-type: none;
-        gap: 40px;
-        margin: 0;
-        padding: 0;
-        margin-right: 50px;
+        display: inline-block;
+        position: absolute;
+        margin-left: 20px;
+        list-style: none;
     }
 
     .sideNavButtons {
-        padding: 5px 10px;
-        background-color: green;
-        color: black;
-        border: 1px solid green;
+        margin-bottom: 20px;
         cursor: pointer;
+        background-color: white;
     }
 
 </style>

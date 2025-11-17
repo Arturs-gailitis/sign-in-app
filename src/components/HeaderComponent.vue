@@ -28,7 +28,7 @@
             <img src="../pictures/logo.svg" id="logo"></img>
         </div>
         <div id="logout">
-            <button type="button" id="logoutButton" v-if="props.statuss" @click="logOut">Logout</button>
+            <button type="button" id="logoutButton" v-if="props.statuss" @click="logOut">Log out</button>
         </div>
     </div>
 
@@ -54,11 +54,11 @@
     #logout {
         display: flex;
         position: relative;
-        right: 90%;
+        right: 10%;
     }
 
     #logoutButton {
-        background-color: green;
+        background-color: #874FFFff;
         cursor: pointer;
         height: auto;
         padding: 5px;

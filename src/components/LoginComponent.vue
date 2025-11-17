@@ -24,7 +24,7 @@
     })
 
     function login() {
-        if (username.value == "john.Pork@example.com" && password.value == "IT2468") {
+        if (username.value == "artūrs.gailītis@va.lv" && password.value == "IT2005") {
             isLoged.value = true;
             emit("loginStatus", isLoged.value);
             console.log("2.4 Login success");
@@ -63,7 +63,7 @@
         justify-content: center;
         align-items: center;
         height: 150px auto;
-        background-color: blue;
+        background-color: #FEC842ff;
         padding-left: 25px;
         padding-right: 25px;
         padding-bottom: 50px;
@@ -72,12 +72,12 @@
     .labelInput {
         margin: 5px;
         display: flex;
-        color: white;
+        color: black;
         justify-content: center;
     }
 
     #Title {
-        color: white;
+        color: black;
         text-align: center;
     }
 
@@ -90,7 +90,7 @@
     }
 
     #messageStatus {
-        color: white;
+        color: black;
         text-align: center;
     }
 
