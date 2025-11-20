@@ -22,7 +22,7 @@
 
     function clickAbout() {
         aboutStatus.value = true;
-        console.log("4.2 Navigate: About");
+        console.log("4.2 Navigate: AboutMe");
         emit("aboutStatus", aboutStatus.value);
         aboutStatus.value = false;
         homeButtonColour.value = "white";
