@@ -2,7 +2,7 @@
 
 const info = {
     name: "Artūrs Gailītis",
-    ID: "IT2005",
+    ID: "IT23005",
     email: "arturs.gailitis@va.lv"
 }
 

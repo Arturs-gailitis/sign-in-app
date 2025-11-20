@@ -24,7 +24,7 @@
     })
 
     function login() {
-        if (username.value == "arturs.gailitis@va.lv" && password.value == "IT2005") {
+        if (username.value == "arturs.gailitis@va.lv" && password.value == "IT23005") {
             isLoged.value = true;
             emit("loginStatus", isLoged.value);
             console.log("2.4 Login success");
